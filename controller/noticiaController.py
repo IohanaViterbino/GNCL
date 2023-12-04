@@ -4,8 +4,8 @@ from datetime import datetime
 
 class CadastrarNoticia:
     @staticmethod
-    def cadastrar_noticia(titulo, autor, legenda, texto, categoria, idFuncionario):
-        noticia = Noticias(titulo, autor, legenda, datetime.now(), texto, categoria, idFuncionario)
+    def cadastrar_noticia(titulo, autor, texto, legenda, categoria, idFuncionario):
+        noticia = Noticias(titulo, autor, texto, legenda, datetime.now(), categoria, idFuncionario)
         noticia.criarNoticia()
 
 class AtualizarNoticia:
@@ -37,7 +37,7 @@ class ListarNoticias:
     def listar_noticias():
         noticias = Noticias.mostrarNoticias()
         for noticia in noticias:
-            print(Noticias)
+            print(noticia)
 
 class BuscarFuncionario:
     @staticmethod

@@ -9,3 +9,5 @@ if __name__ == '__main__':
     ListarFuncionario.listar_funcionarios() #FEITO
     ExcluirFuncionario.excluir_funcionario(1) #FEITO
     ListarFuncionario.listar_funcionarios() #FEITO
+
+
