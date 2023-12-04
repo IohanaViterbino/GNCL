@@ -39,7 +39,7 @@ class ListarNoticias:
         for noticia in noticias:
             print(noticia)
 
-class BuscarFuncionario:
+class BuscarNoticia:
     @staticmethod
     def buscar_noticia_por_id(id):
         noticia = Noticias.mostrarNoticias_por_id(id)
