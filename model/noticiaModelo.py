@@ -11,7 +11,7 @@ class Noticias:
         self.__categoria = categoria
         self.__idFuncionario = idFuncionario
 
-        query="CREATE TABLE IF NOT EXISTS noticias(id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, autor TEXT, texto TEXT, legenda TEXT, dataEHora TEXT, categoria TEXT, idFuncionario INTERGER)" #se a tabela produtos ainda não existir, crio uma
+        query="CREATE TABLE IF NOT EXISTS noticias(id INTEGER PRIMARY KEY AUTOINCREMENT, titulo TEXT, autor TEXT, texto TEXT, legenda TEXT, dataEHora TEXT, categoria TEXT, idFuncionario INTERGER)" 
         _executar(query)
 
     def getId(self):
@@ -38,23 +38,23 @@ class Noticias:
     def setTexto(self, valor):
         self.__texto = valor
 
-    def getLegenda(self, valor):
+    def setLegenda(self, valor):
         self.__legenda = valor
         
-    def setLegenda(self, valor):
+    def getLegenda(self):
         return self.__legenda
     
-    def getDataEHora(self, valor):
-        self.__dataEHora
+    def getDataEHora(self):
+        return self.__dataEHora
         
     def setDataEHora(self, valor):
-        self.__dataEHora
+        self.__dataEHora = valor
         
-    def getCategoria(self, valor):
-        self.__categoria
+    def getCategoria(self):
+        return self.__categoria
         
     def setCategoria(self, valor):
-        self.__categoria
+        self.__categoria = valor
 
     def getIdFuncionario(self):
         return self.__idFuncionario
@@ -65,15 +65,16 @@ class Noticias:
         # tudo que você precisa para comandar isso aqui de cima
 
     def criarNoticia(self):
-        query = f"INSERT INTO  noticia (id, titulo, autor, texto, legenda, dataEHora, categoria, idFuncionario) VALUES ('{int(self.getId())}', '{self.getTitulo()}', '{self.getAutor()}', {self.getTexto()}, '{self.getLegenda()}', '{self.getDataEHora()}', '{self.getCategoria()}', '{int(self.getIdFuncionario())}')"
+        query = f"INSERT INTO  noticias (titulo, autor, texto, legenda, dataEHora, categoria, idFuncionario) VALUES ('{self.getTitulo()}', '{self.getAutor()}', {self.getTexto()}, '{self.getLegenda()}', '{self.getDataEHora()}', '{self.getCategoria()}', '{int(self.getIdFuncionario())}')"
         _executar(query)
+        print("Criado")
 
     def editarNoticia(self):
         query = f"UPDATE noticias SET tiulo='{self.getTitulo()}', autor='{self.getAutor()}', texto={self.getTexto()}, legenda='{self.getLegenda()}', dataEHora='{self.getDataEHora()}', categoria='{self.getCategoria()}', WHERE id={self.getId()}"
         _executar(query)
 
     def deletarNoticia(self):
-        query = f"DELETE FROM noticia WHERE id={self.getId()}"
+        query = f"DELETE FROM noticias WHERE id={self.getId()}"
         _executar(query)
 
     @staticmethod
