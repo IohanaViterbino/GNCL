@@ -1,4 +1,4 @@
-from model.usuarioModel import Funcionario
+from model.funcionarioModel import Funcionario
 
 #funcionario1 = Funcionario("Nome", "123.456.789-00", "usuario", "senha")
 #funcionario1.cadastrarFuncionario() #FEITO
