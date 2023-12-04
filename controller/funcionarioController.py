@@ -15,7 +15,7 @@ class AtualizarFuncionario:
             funcionario.setCpf(cpf)
             funcionario.setLogin(login)
             funcionario.setSenha(senha)
-            funcionario.alterarUs()
+            funcionario.alterarFuncionario()
         else:
             print(f"Funcionario com ID {id} não encontrado.")
 
