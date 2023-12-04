@@ -40,13 +40,13 @@ class Funcionario:
    
     # Inserir
     def cadastrarFuncionario(self):
-        query = f"INSERT INTO funcionarios(nome, idade, cpf, login, senha) VALUES ('{self.getNome()}', '{int(self.getIdade())}', '{self.getCpf()}', '{self.getLogin()}', '{self.getSenha()}')"
+        query = f"INSERT INTO funcionarios(nome, cpf, login, senha) VALUES ('{self.getNome()}', '{self.getCpf()}', '{self.getLogin()}', '{self.getSenha()}')"
         _executar(query)
         print("Funcionario Cadastrado!")
 
     # Alterar
-    def alterarUs(self):
-        query = f"UPDATE usuarios SET nome='{self.getNome()}', idade='{int(self.getIdade())}', multa='{float(self.getMulta())}', qDeEmprestimos='{int(self.getQDeEmprestimo())}', tipoDoUsuario='{int(self.getTipoUsuario())}' WHERE id={int(self.getId())}"
+    def alterarFuncionario(self):
+        query = f"UPDATE funcionarios SET nome='{self.getNome()}', cpf='{self.getCpf()}', login='{self.getLogin()}', senha='{self.getSenha()}' WHERE id={int(self.getId())}"
         _executar(query)
 
     # Excluir
