@@ -35,15 +35,11 @@ class Funcionario:
 
     query = "CREATE TABLE IF NOT EXISTS funcionarios(id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, cpf TEXT, login TEXT, senha TEXT)"
     _executar(query)
-    print("Tabela Criada!")
-
    
     # Inserir
     def cadastrarFuncionario(self):
         query = f"INSERT INTO funcionarios(nome, cpf, login, senha) VALUES ('{self.getNome()}', '{self.getCpf()}', '{self.getLogin()}', '{self.getSenha()}')"
         _executar(query)
-        print("Funcionario Cadastrado!")
-
     # Alterar
     def alterarFuncionario(self):
         query = f"UPDATE funcionarios SET nome='{self.getNome()}', cpf='{self.getCpf()}', login='{self.getLogin()}', senha='{self.getSenha()}' WHERE id={int(self.getId())}"

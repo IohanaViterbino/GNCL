@@ -67,7 +67,6 @@ class Noticias:
     def criarNoticia(self):
         query = f"INSERT INTO  noticias (titulo, autor, texto, legenda, dataEHora, categoria, idFuncionario) VALUES ('{self.getTitulo()}', '{self.getAutor()}', '{self.getTexto()}', '{self.getLegenda()}', '{self.getDataEHora()}', '{self.getCategoria()}', '{int(self.getIdFuncionario())}')"
         _executar(query)
-        print("Criado")
 
     def editarNoticia(self):
         query = f"UPDATE noticias SET titulo='{self.getTitulo()}', autor='{self.getAutor()}', texto='{self.getTexto()}', legenda='{self.getLegenda()}', dataEHora='{self.getDataEHora()}', categoria='{self.getCategoria()}' WHERE id={self.getId()}"
