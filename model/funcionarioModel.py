@@ -1,4 +1,4 @@
-from bd import _executar
+from database.bd import _executar
 
 class Funcionario:
     def __init__(self, nome, cpf, login, senha, id=None):

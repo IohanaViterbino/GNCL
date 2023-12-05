@@ -1,4 +1,4 @@
-from bd import _executar
+from database.bd import _executar
 
 class Noticias:
     def __init__(self, titulo, autor, legenda, dataEHora, texto, categoria, idFuncionario, id=None):
