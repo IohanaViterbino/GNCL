@@ -1,5 +1,20 @@
 from model.funcionarioModel import Funcionario
 
+class LoginFuncionario:
+    @staticmethod
+    def login(login, senha, id):
+        funcionario = Funcionario.listarFuncionarioPorId(id)
+        if funcionario.getLogin().lower() == login.lower():
+            if funcionario.getSenha().lower() == senha.lower():
+                print("Login validado")
+                return True
+            else:
+                print("Senha inválida. Tente novamente")
+                return False
+        else:
+            print("Login inválido. Tente novamente")
+            return False
+
 class CadastrarFuncionario:
     @staticmethod
     def cadastrar_funcionario(nome, cpf, login, senha):
