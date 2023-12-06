@@ -2,12 +2,12 @@ from model.funcionarioModel import Funcionario
 
 class LoginFuncionario:
     @staticmethod
-    def login(login, senha, id):
-        funcionario = Funcionario.listarFuncionarioPorId(id)
+    def login(login, senha):
+        funcionario = Funcionario.listarFuncionarioPorLogin(login,senha)
         if funcionario.getLogin().lower() == login.lower():
             if funcionario.getSenha().lower() == senha.lower():
                 print("Login validado")
-                return True
+                return funcionario
             else:
                 print("Senha inválida. Tente novamente")
                 return False
@@ -18,7 +18,7 @@ class LoginFuncionario:
 class CadastrarFuncionario:
     @staticmethod
     def cadastrar_funcionario(nome, cpf, login, senha):
-        funcionario = Funcionario(nome, cpf, login, senha)
+        funcionario = Funcionario(nome, cpf, login.lower(), senha.lower())
         funcionario.cadastrarFuncionario()
 
 class AtualizarFuncionario:
@@ -31,6 +31,7 @@ class AtualizarFuncionario:
             funcionario.setLogin(login)
             funcionario.setSenha(senha)
             funcionario.alterarFuncionario()
+            print("Funcionário alterado com sucesso!")
         else:
             print(f"Funcionario com ID {id} não encontrado.")
 
@@ -58,3 +59,12 @@ class BuscarFuncionario:
             print(funcionario)
         else:
             print(f"Funcionario com ID {id} não encontrado.")
+            
+    @staticmethod
+    def buscar_funcionario_por_nome(nome):
+        funcionario = Funcionario.listarFuncionarioPorNome(nome)
+        if funcionario:
+            print(funcionario)
+        else:
+            print(f"Funcionario com o nome {nome} não encontrado.")
+

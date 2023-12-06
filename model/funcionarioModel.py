@@ -73,6 +73,38 @@ class Funcionario:
             return funcionario
         else:
             return None
+        
+    @staticmethod
+    def listarFuncionarioPorLogin(login, senha):
+        query = f"SELECT * FROM funcionarios WHERE login='{login}' and senha='{senha}'"
+        resultado = _executar(query)[0]
+        if resultado:
+            funcionario = Funcionario(
+                nome=resultado[1],
+                cpf=resultado[2],
+                login=resultado[3],
+                senha=resultado[4],
+                id=resultado[0]
+            )
+            return funcionario
+        else:
+            return None
+        
+    @staticmethod
+    def listarFuncionarioPorNome(nome):
+        query = f"SELECT * FROM funcionarios WHERE nome='{nome}'"
+        resultado = _executar(query)[0]
+        if resultado:
+            funcionario = Funcionario(
+                nome=resultado[1],
+                cpf=resultado[2],
+                login=resultado[3],
+                senha=resultado[4],
+                id=resultado[0]
+            )
+            return funcionario
+        else:
+            return None
 
     #to string
     def __str__(self):
