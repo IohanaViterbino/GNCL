@@ -28,13 +28,18 @@ class FuncionarioView:
         except IndexError:
             print("id de usuário não encontrado.")
 
+    def ExcluirPorIdF(id):
+        try:
+            return ExcluirFuncionario.excluir_funcionario(id)
+        except IndexError:
+            print("id de usuário não encontrado.")
+
     def AtualizarF(id, nome, cpf, login, senha): #colocar tratamento para campos em branco.
         try:
             return AtualizarFuncionario.alterar_dados_funcionario(id, nome, cpf, login, senha)
         except IndexError:
             print("id de usuário não encontrado.")
         
-
     def menuView(func):
         while True:
             print(f"\nBem vindo ao GNCL, {func.getNome()}!\nInsira a opção desejada:"
@@ -42,8 +47,10 @@ class FuncionarioView:
                 +"\n2- Listar Funcionários;"
                 +"\n3- Buscar Funcionário por id;"
                 +"\n4- Buscar Funcionário por nome;"
-                +"\n5- Atualizar Funcionário (precisa do id, para concluir essa ação);")
+                +"\n5- Atualizar Funcionário (precisa do id para concluir essa ação);"
+                +"\n6- Remover Funcionário (precisa do id para concluir essa ação);")
             op=int(input())
+
             match(op):
                 case 1:
                     FuncionarioView.cadastroF()
@@ -68,5 +75,10 @@ class FuncionarioView:
                     login= input("Insira o Login: ")
                     senha= input("Insira a Senha: ")
                     FuncionarioView.AtualizarF(id, nome, cpf, login, senha)
+                case 6:
+                    print("ATENÇÃO\nESSA AÇÃO É DE CARÁTER CRÍTICO!")
+                    id= int(input("Insira o Id do usuário a ser removido: "))
+                    FuncionarioView.ExcluirPorIdF(id)
+                    
                 case _:
                     print("opção inválida. Insira uma válida")

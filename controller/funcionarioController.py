@@ -8,12 +8,6 @@ class LoginFuncionario:
             if funcionario.getSenha().lower() == senha.lower():
                 print("Login validado")
                 return funcionario
-            else:
-                print("Senha inválida. Tente novamente")
-                return False
-        else:
-            print("Login inválido. Tente novamente")
-            return False
 
 class CadastrarFuncionario:
     @staticmethod
