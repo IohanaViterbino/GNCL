@@ -60,5 +60,5 @@ class BuscarFuncionario:
         if funcionario:
             print(funcionario)
         else:
-            print(f"Funcionario com o nome {nome} não encontrado.")
+            print(f"Funcionario com o nome '{nome}' não encontrado.")
 

@@ -7,7 +7,7 @@ class CadastrarNoticia:
     @staticmethod
     def cadastrar_noticia(titulo, autor, texto, legenda, categoria, idFuncionario):
         if Funcionario.listarFuncionarioPorId(idFuncionario):
-            noticia = Noticias(titulo, autor, texto, legenda, datetime.now(), categoria, idFuncionario)
+            noticia = Noticias(titulo.lower(), autor, texto, legenda, datetime.now(), categoria, idFuncionario)
             noticia.criarNoticia()
 
 class AtualizarNoticia:
@@ -17,7 +17,8 @@ class AtualizarNoticia:
             noticia = Noticias.mostrarNoticias_por_id(id)
             if noticia:
                 noticia.setAutor(autor)
-                noticia.setTitulo(titulo)
+                noticia.setTitulo(titulo.lower())
+                noticia.setDataEHora(datetime.now())
                 noticia.setTexto(texto)
                 noticia.setLegenda(legenda)
                 noticia.setCategoria(categoria)
@@ -46,7 +47,9 @@ class BuscarNoticia:
     @staticmethod
     def buscar_noticia_por_id(id):
         noticia = Noticias.mostrarNoticias_por_id(id)
-        if noticia:
-            print(noticia)
-        else:
-            print(f"Notícia com ID {id} não encontrado.")
+        print(noticia)
+
+    @staticmethod
+    def buscar_noticia_por_titulo(titulo):
+        noticia = Noticias.mostrarNoticias_por_Tiulo(titulo)
+        print(noticia)

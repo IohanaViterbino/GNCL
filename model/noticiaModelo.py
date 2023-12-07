@@ -88,7 +88,14 @@ class Noticias:
         noticias = _executar(query)[0]
         noticias = Noticias(id = noticias[0], titulo = noticias[1], autor = noticias[2], texto=noticias[3], legenda=noticias[4], dataEHora=noticias[5], categoria=noticias[6], idFuncionario=noticias[7])
         return noticias
+    
+    @staticmethod
+    def mostrarNoticias_por_Tiulo(titulo):
+        query = f"SELECT * FROM noticias WHERE titulo='{titulo}'"
+        noticias = _executar(query)[0]
+        noticias = Noticias(id = noticias[0], titulo = noticias[1], autor = noticias[2], texto=noticias[3], legenda=noticias[4], dataEHora=noticias[5], categoria=noticias[6], idFuncionario=noticias[7])
+        return noticias
 
     #to string
     def __str__(self):
-        return f"'{self.__id}', '{self.__titulo}', '{self.__autor}'"
+        return f"ID: '{self.__id}'\nTitulo: '{self.__titulo}'\nAutor: '{self.__autor}'"
