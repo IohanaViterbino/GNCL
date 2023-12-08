@@ -1,4 +1,3 @@
-from database.bd import _executar
 
 class Funcionario:
     def __init__(self, nome, cpf, login, senha, id=None):
@@ -32,80 +31,7 @@ class Funcionario:
         return self.__senha
     def setSenha(self, nova_senha):
         self.__senha = nova_senha
-
-    query = "CREATE TABLE IF NOT EXISTS funcionarios(id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, cpf TEXT, login TEXT, senha TEXT)"
-    _executar(query)
-   
-    # Inserir
-    def cadastrarFuncionario(self):
-        query = f"INSERT INTO funcionarios(nome, cpf, login, senha) VALUES ('{self.getNome()}', '{self.getCpf()}', '{self.getLogin()}', '{self.getSenha()}')"
-        _executar(query)
-    # Alterar
-    def alterarFuncionario(self):
-        query = f"UPDATE funcionarios SET nome='{self.getNome()}', cpf='{self.getCpf()}', login='{self.getLogin()}', senha='{self.getSenha()}' WHERE id={int(self.getId())}"
-        _executar(query)
-
-    # Excluir
-    def excluirFuncionario(self):
-        query = f"DELETE FROM funcionarios WHERE id={int(self.getId())}"
-        _executar(query)
-
-    # Listar professores cadastrados.
-    @staticmethod
-    def listarUsuarios():
-        query = "SELECT * FROM funcionarios"
-        funcionarios = _executar(query)
-        return funcionarios
-
-    # Buscar professor pelo ID.
-    @staticmethod
-    def listarFuncionarioPorId(id):
-        query = f"SELECT * FROM funcionarios WHERE id={int(id)}"
-        resultado = _executar(query)[0]
-        if resultado:
-            funcionario = Funcionario(
-                nome=resultado[1],
-                cpf=resultado[2],
-                login=resultado[3],
-                senha=resultado[4],
-                id=resultado[0]
-            )
-            return funcionario
-        else:
-            return None
         
-    @staticmethod
-    def listarFuncionarioPorLogin(login, senha):
-        query = f"SELECT * FROM funcionarios WHERE login='{login}' and senha='{senha}'"
-        resultado = _executar(query)[0]
-        if resultado:
-            funcionario = Funcionario(
-                nome=resultado[1],
-                cpf=resultado[2],
-                login=resultado[3],
-                senha=resultado[4],
-                id=resultado[0]
-            )
-            return funcionario
-        else:
-            return None
-        
-    @staticmethod
-    def listarFuncionarioPorNome(nome):
-        query = f"SELECT * FROM funcionarios WHERE nome='{nome}'"
-        resultado = _executar(query)[0]
-        if resultado:
-            funcionario = Funcionario(
-                nome=resultado[1],
-                cpf=resultado[2],
-                login=resultado[3],
-                senha=resultado[4],
-                id=resultado[0]
-            )
-            return funcionario
-        else:
-            return None
-
     #to string
     def __str__(self):
-        return f"'{self.__nome}': '{self.__id}'"
+        return f"ID: '{self.__id}'\nNome: '{self.__nome}'\nLogin:'{self.__login}'"
